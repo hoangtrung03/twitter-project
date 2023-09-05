@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Button from '../components/Button/Button'
 import ButtonModal from '../components/ButtonModal/ButtonModal'
 
-export default function Login() {
+export default function Signup() {
   return (
     <div className='container'>
       <div className='grid grid-cols-12 min-h-screen content-center'>
@@ -32,24 +32,24 @@ export default function Login() {
               <span>Sign up with Apple</span>
             </Button>
             <p className='text-center w-full relative line-left-right mb-4'>or</p>
-            <Link
-              href={'/signup'}
-              className='font-semibold border px-4 h-10 rounded-full text-14 w-full mb-4 text-white bg-sky-500 hover:bg-sky-600 duration-200 flex justify-center items-center'
+            <ButtonModal
+              isShowModal={true}
+              urlCloseBtn='/'
+              nameBtn='Create account'
+              className='font-semibold border px-4 h-10 rounded-full text-14 w-full mb-4 text-white bg-sky-500 hover:bg-sky-600 duration-200'
             >
-              Create account
-            </Link>
+              <div className='p-8'>Signup Modal</div>
+            </ButtonModal>
             <p className='text-10 text-gray-700 mb-10'>
               By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.
             </p>
             <p className='font-semibold mb-4'>Already have an account?</p>
-            <ButtonModal
-              isShowModal={true}
-              nameBtn='Sign in'
-              urlCloseBtn='/'
-              className='font-semibold border px-4 h-10 rounded-full text-14 w-full mb-4 hover:bg-blue-50 hover:border-blue-100 duration-200 text-sky-500'
+            <Link
+              href={'/login'}
+              className='font-semibold border px-4 h-10 rounded-full text-14 w-full mb-4 hover:bg-blue-50 hover:border-blue-100 duration-200 text-sky-500 flex justify-center items-center'
             >
-              <div className='p-8'>Login modal</div>
-            </ButtonModal>
+              Sign in
+            </Link>
           </div>
         </div>
       </div>
