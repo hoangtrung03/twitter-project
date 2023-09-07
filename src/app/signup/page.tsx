@@ -52,14 +52,14 @@ export default function Signup() {
           <form noValidate>
             <Input
               className='relative mb-3 group'
-              classNameInput='w-full h-12 px-4 text-sm border'
+              classNameInput='w-full text-sm text-gray-900 border h-12 px-4'
               name='name'
               id='name'
               nameLabel='Full Name'
             />
             <Input
               className='relative mb-3 group'
-              classNameInput='w-full h-12 px-4 text-sm border'
+              classNameInput='w-full text-sm text-gray-900 border h-12 px-4'
               name='email'
               id='email'
               nameLabel='Email Address'

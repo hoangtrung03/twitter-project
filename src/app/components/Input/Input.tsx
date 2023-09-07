@@ -42,13 +42,19 @@ export default function Input({
   return (
     <div className={className} data-te-input-wrapper-init>
       <div className='relative'>
+        <input
+          className={`${classNameInput} appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer `}
+          {...registerResult}
+          {...restParams}
+          id={id}
+          type={handleType()}
+          placeholder=' '
+        />
         <label
           htmlFor={id}
-          className='transform transition-all absolute top-1/2 -translate-y-1/2 left-2 px-2 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:-translate-y-[180%] peer-valid:-translate-y-[180%] group-focus-within:bg-white peer-valid:bg-white'
-        >
+          className='absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1/2 z-10 origin-[0] left-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-focus:scale-75 peer-focus:-translate-y-6'        >
           {nameLabel}
         </label>
-        <input className={`${classNameInput} `} {...registerResult} {...restParams} id={id} type={handleType()} />
       </div>
       {restParams.type === 'password' && visible && (
         <svg
