@@ -9,6 +9,8 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>
   rules?: RegisterOptions
+  id?: string
+  nameLabel?: string
 }
 
 export default function Input({
@@ -19,6 +21,8 @@ export default function Input({
   rules,
   classNameInput = 'w-full md:h-12 h-10 rounded-10 border border-secondary-D2D1D6 placeholder:text-secondary-D2D1D6 placeholder:fs-14 md:placeholder:fs-16 fs-14 md:fs-16 text-primary-1A162E md:px-4 px-3 outline-none focus:border-primary-1A162E transition-colors',
   classNameError = 'mt-1 min-h-[1.25rem] fs-12 text-red-600',
+  id,
+  nameLabel,
   ...restParams
 }: Props) {
   const [visible, setVisible] = useState(false)
@@ -36,8 +40,16 @@ export default function Input({
   }
 
   return (
-    <div className={className}>
-      <input className={classNameInput} {...registerResult} {...restParams} type={handleType()} />
+    <div className={className} data-te-input-wrapper-init>
+      <div className='relative'>
+        <label
+          htmlFor={id}
+          className='transform transition-all absolute top-1/2 -translate-y-1/2 left-2 px-2 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:-translate-y-[180%] peer-valid:-translate-y-[180%] group-focus-within:bg-white peer-valid:bg-white'
+        >
+          {nameLabel}
+        </label>
+        <input className={`${classNameInput} `} {...registerResult} {...restParams} id={id} type={handleType()} />
+      </div>
       {restParams.type === 'password' && visible && (
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -74,7 +86,6 @@ export default function Input({
           />
         </svg>
       )}
-
       <div className={classNameError}>{errorMessage}</div>
     </div>
   )
